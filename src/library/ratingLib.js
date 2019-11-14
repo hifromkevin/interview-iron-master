@@ -2,7 +2,7 @@
 const starScale = (num, scale='') => {
   if (num >= 15) {
     return starScale(num - 20, scale+='★');
-  } else if (num >= 5) {
+  } else if (num >= 1) {
     return scale+= '½';
   } else {
     return scale;
