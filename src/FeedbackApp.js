@@ -18,7 +18,7 @@ module.exports = class FeedbackApp {
 
     // Checks length of string
     // Uses 78 to account for spaces between sections
-    if (dateLength + ratingLength + feedbackLength <= 78) {
+    if (dateLength + ratingLength + feedbackLength < 78) {
       return rating ? `${formattedFeedback} ${rating} ${formattedDate}` : `${formattedFeedback} ${formattedDate}`;
     } else {
       return (feedbackLength + ratingLength > 79) ? `${formattedFeedback.split('').slice(0, (75 - ratingLength)).join('')}... ${rating}` : `${formattedFeedback} ${rating}`;
