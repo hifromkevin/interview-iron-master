@@ -16,10 +16,12 @@ module.exports = class FeedbackApp {
     let formattedFeedback = `${feedback.word}: ${feedback.comment}`;
     let feedbackLength = formattedFeedback.length;
 
-    if (dateLength + ratingLength + feedbackLength < 78) {
-      return `${formattedFeedback} ${rating} ${formattedDate}`;
+    // Checks length of string
+    // Uses 78 to account for spaces between sections
+    if (dateLength + ratingLength + feedbackLength <= 78) {
+      return rating ? `${formattedFeedback} ${rating} ${formattedDate}` : `${formattedFeedback} ${formattedDate}`;
     } else {
-      return `${formattedFeedback} ${rating}`;
+      return (feedbackLength + ratingLength > 79) ? `${formattedFeedback.split('').slice(0, (76 - ratingLength)).join('')}... ${rating}` : `${formattedFeedback} ${rating}`;
     }
   }
 };
