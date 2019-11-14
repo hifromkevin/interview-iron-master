@@ -21,7 +21,7 @@ module.exports = class FeedbackApp {
     if (dateLength + ratingLength + feedbackLength <= 78) {
       return rating ? `${formattedFeedback} ${rating} ${formattedDate}` : `${formattedFeedback} ${formattedDate}`;
     } else {
-      return (feedbackLength + ratingLength > 79) ? `${formattedFeedback.split('').slice(0, (76 - ratingLength)).join('')}... ${rating}` : `${formattedFeedback} ${rating}`;
+      return (feedbackLength + ratingLength > 79) ? `${formattedFeedback.split('').slice(0, (75 - ratingLength)).join('')}... ${rating}` : `${formattedFeedback} ${rating}`;
     }
   }
 };
