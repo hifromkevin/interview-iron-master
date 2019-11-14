@@ -2,7 +2,7 @@ module.exports = class FeedbackApp {
 
   formatFeedback(feedback) {
     // Moved rating and library functions to library files to reduce code in formatFeedback function
-    let lib = require('./library/index.js');
+    let lib = require('./library');
 
     // Get the lengths of each block of text to anticipate 80 character maximum
     let formattedDate = lib.formatDate(feedback.date);
