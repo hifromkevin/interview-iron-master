@@ -14,16 +14,12 @@ module.exports = class FeedbackApp {
     let formattedFeedback = `${feedback.word}: ${feedback.comment}`;
     let feedbackLength = formattedFeedback.length;
 
-    let stopOnWord = (sentence, ratingLength, max=80, rotation=false) => {
-      return (sentence.length + ratingLength < (max - 4)) ? ((rotation) ? `${sentence} ...` : sentence) : stop2(sentence.split(' ').slice(0,-1).join(' '), ratingLength, max, rotation = true);
-    }
-
     // Checks length of string
     // Uses 78 to account for spaces between sections
     if (dateLength + ratingLength + feedbackLength < 78) {
       return rating ? `${formattedFeedback} ${rating} ${formattedDate}` : `${formattedFeedback} ${formattedDate}`;
     } else {
-      return (feedbackLength + ratingLength > 79) ? `${stopOnWord(formattedFeedback, ratingLength)} ${rating}` : `${formattedFeedback} ${rating}`;
+      return (feedbackLength + ratingLength > 79) ? `${lib.stopOnWord(formattedFeedback, ratingLength)} ${rating}` : `${formattedFeedback} ${rating}`;
     };
   };
 };
