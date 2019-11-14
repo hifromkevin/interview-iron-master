@@ -16,6 +16,10 @@ module.exports = class FeedbackApp {
     let formattedFeedback = `${feedback.word}: ${feedback.comment}`;
     let feedbackLength = formattedFeedback.length;
 
-    return `${formattedFeedback} ${rating} ${formattedDate}`;
+    if (dateLength + ratingLength + feedbackLength < 78) {
+      return `${formattedFeedback} ${rating} ${formattedDate}`;
+    } else {
+      return `${formattedFeedback} ${rating}`;
+    }
   }
 };
